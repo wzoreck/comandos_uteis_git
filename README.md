@@ -122,6 +122,12 @@ $ git diff --name-only
 $ git diff HEAD~1
 ```
 
+- Visualizar a diferença entre dois commits:
+
+```
+$ git diff númeroCommit1 númeroCommit2
+```
+
 
 
 ### Visualizar commits anteriores
@@ -160,14 +166,6 @@ $ git remote -v
 
 
 
-### Puxar alterações feitas no repositório remoto para o repositório local
-
-```
-$ git pull
-```
-
-
-
 ## Estado dos Arquivos
 
 - Não monitorado (untracked)
@@ -178,4 +176,84 @@ $ git pull
 
 
 ## Contribuições para projetos
+
+- Para baixar um repositório remoto (baixa uma cópia):
+
+```
+$ git clone repositórioURL
+```
+
+
+
+### Puxar alterações feitas no repositório remoto para o repositório local
+
+Baixa somente as alterações do repositório remoto, mantém o repositório sincronizado com os últimos commits de uma branch "ramo", "ramificação".
+
+```
+$ git pull
+```
+
+
+
+Quando você adiciona um colaborador ao seu repositório remoto significa que ele poderá realizar push's enviando alterações para o repositório remoto.
+
+
+
+### Navegar no histórico
+
+- Visualizar como um arquivo ou todo o repositório estava em um determinado commit (o conteúdo volta ao estado que era no commit, porem você não pode fazer novos commits em cima desse estado):
+
+```
+$ git checkout numeroCommit nomeArquivoOpicional
+```
+
+- Voltar para a master:
+
+```
+$ git checkout master
+```
+
+
+
+### Desfazendo alterações
+
+- Desfaz alterações que não foram adicionadas "add" ainda, voltando para o estado do último commit ou add:
+
+```
+$ git checkout -- arquivoOuPasta
+--ou--
+$ git checkout -- .
+```
+
+- Desfazer alterações que já foi realizado o add "staged":
+
+```
+$ git checkout HEAD -- nomeArquivo
+```
+
+- Desfazer um commit antigo (irá criar um novo commit que desfaz as alterações do commit especificado):
+
+```
+$ git revert númeroCommit
+```
+
+- Resetar o repositório para um determinado commit (só utilizar se ainda não foi feito git push, os commits acima serão apagados):
+
+```
+$ git reset númeroCommit
+```
+
+- Resetar voltando commits atrás (commits acima serão apagados, o conteúdo não, ficará como modificado "modified"):
+
+```
+$ git reset HEAD~1
+--ou--
+$ git reset HEAD~outroNúmero
+```
+
+- Resetar voltando o estado do commit anterior, apaga o commit e as alterações:
+
+```
+$ git reset HEAD~1 --hard
+```
 
