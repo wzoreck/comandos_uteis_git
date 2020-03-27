@@ -257,3 +257,163 @@ $ git reset HEAD~outroNúmero
 $ git reset HEAD~1 --hard
 ```
 
+
+
+### Conflitos
+
+Podem acontecer ao unirmos alterações, quando versões diferentes possuem as mesmas linhas no mesmo arquivo editadas diferentes. Ao resolver conflitos deve ser realizado um commit.
+
+
+
+#### Resolvendo conflitos com merge - commit de merge
+
+Ir até o(s) arquivo(s) onde há conflito e apagar as linhas criadas pelo git, informando sobre o conflito, após realizar add e commit.
+
+
+
+### Branching
+
+- É uma lista de commits;
+- Representa ramificações no repositório;
+- Útil em em projetos colaborativos e em equipe;
+- Branchs facilitam no processo de desenvolvimento;
+- Branch Master é a padrão.
+
+
+
+- Visualizar as branchs existentes no repositório:
+
+```
+$ git branch
+```
+
+- Criar uma branch:
+
+```
+$ git branch nomeDaBranch
+```
+
+- Excluir uma branch:
+
+```
+$ git branch -d nomeDaBranch
+```
+
+- Mudar de branch (o repositório passa a ter os commits existentes na branch e novos commits serão adicionados à ela):
+
+```
+$ git checkout nomeDaBranch
+```
+
+- Criar uma branch e já mudar para ela:
+
+```
+$ git checkout -b nomeDaBranch
+```
+
+- Criar uma nova branch e enviar para o repositório remoto (GitHub):
+
+```
+$ git push -u origin nomeDaBranch
+```
+
+
+
+### Merge
+
+- Aplica os commits de uma branch na branch atual;
+- Encontra um commit comum entre as branchs e aplica todos os commits que a branch atual não possui;
+- Caso exista commits na branch atual que não estão na outra branch, será criado commit de merge.
+
+
+
+- Comando, (caso haja conflito, resolver o conflito e realizar add e commit após o merge):
+
+```
+$ git merge nomeDaBranch
+```
+
+
+
+### Rebase
+
+- Semelhante ao Merge, porem é diferente na ordem de aplicação dos commits;
+- No rebase sus commits à frente da base "ponto em que houve ramificação" são removidos temporariamente, os commits de outra branch são aplicados a branch atual e finalmente os commits removidos temporariamente são aplicados um a um;
+- Pode acontecer conflitos que devem ser resolvidos para cada commit;
+- É util para evitar mutias ramificações no histórico, utilizar Rebase para pequenas alterações e Merge para grandes alterações;
+
+
+
+- Comando:
+
+```
+$ git rebase nomeDaBranch
+```
+
+- Caso ocorra conflitos, após resolve-los:
+
+```
+$ git rebase --continue
+```
+
+
+
+### Fetch
+
+- Baixa atualizações existentes no repositório remoto, porem não aplica no repositório local;
+- Permite fazer o rebase de uma branch em vez de merge;
+- Pull = Fetch + Merge;
+- Rebase e Fetch contribui para um melhor histórico do projeto.
+
+
+
+- Comando (após isso pode-se utilizar o rebase para adicionar as modificações):
+
+```
+$ git fetch
+```
+
+
+
+### Tag
+
+- Útil para definir versões estáveis do projeto (nomear versões como exemplo: v1.0);
+- Semelhante a branch, porém não recebe mais commits;
+- Guarda um estado do repositório.
+
+
+
+- Comando:
+
+```
+$ git tag nomeDaTag
+```
+
+- Visualizar as tags:
+
+```
+$ git tag
+```
+
+- Enviar tag para GitHub (lá pode ser encontrado em releases):
+
+```
+$ git push origin nomeDaTag
+```
+
+- Entrar em uma tag:
+
+```
+$ git checkout nomeDaTag
+```
+
+
+
+# GitHub - Contribuir em projeto
+
+Realizar um Fork no repositório criado por outra pessoa, o fork cria uma cópia do estado atual de um repositório de outra pessoa para o seu usuário.
+
+Issues - para reportar bugs ou tarefas a serem realizadas.
+
+Pull Request - Serve para solicitar que suas alterações sejam unidas a uma branch no mesmo repositório ou a um repositório que sofreu fork. Útil para trabalho colaborativo.
+
