@@ -417,3 +417,18 @@ Issues - para reportar bugs ou tarefas a serem realizadas.
 
 Pull Request - Serve para solicitar que suas alterações sejam unidas a uma branch no mesmo repositório ou a um repositório que sofreu fork. Útil para trabalho colaborativo.
 
+
+
+### Checkout em Pull Request
+
+- Cria uma branch com os commits do pull request:
+
+```
+$ git fetch origin pull/idDoPull/head:NomeDaBranch
+```
+
+
+
+### .gitignore
+
+Para configurar arquivos a serem ignorados no projeto, arquivos que não vão fazer parte do repositório, podendo ignorar tanto arquivos como diretórios "caminhos".
