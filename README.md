@@ -99,7 +99,7 @@ $ git status
 ### Criar uma versão do seu código fonte
 
 ```
-$ git commit -am "mensage do que você fez"
+$ git commit -m "mensage do que você fez"
 ```
 
 
